@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Abré los ojos</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- TITULOS -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- TEXTO -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      background:#F7F3EE;
+      font-family:'Montserrat', sans-serif;
+      color:#1A1A1A;
+      overflow-x:hidden;
+    }
+
+    img{
+      width:100%;
+      display:block;
+    }
+
+    .section{
+      width:100%;
+    }
+
+    .section img{
+      width:100%;
+      height:auto;
+      object-fit:cover;
+    }
+
+    /* BOTON FLOTANTE */
+
+    .floating-cta{
+      position:fixed;
+      bottom:20px;
+      left:50%;
+      transform:translateX(-50%);
+      width:90%;
+      max-width:420px;
+      z-index:999;
+    }
+
+    .floating-cta a{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-decoration:none;
+      background:#1F302E;
+      color:white;
+      padding:16px 20px;
+      border-radius:18px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.18);
+      transition:0.3s ease;
+    }
+
+    .floating-cta a:hover{
+      transform:translateY(-2px);
+    }
+
+    .cta-title{
+      font-size:16px;
+      font-weight:600;
+      letter-spacing:0.3px;
+    }
+
+    .cta-sub{
+      margin-top:4px;
+      font-size:12px;
+      opacity:0.8;
+    }
+
+    /* ESPACIO FINAL */
+    .bottom-space{
+      height:120px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="section">
+    <img src="hero.jpg" alt="Hero ebook">
+  </section>
+
+  <!-- SECCION 2 -->
+  <section class="section">
+    <img src="./imagenes/dos.png" alt="Esto me pasa">
+  </section>
+
+  <!-- SECCION 3 -->
+  <section class="section">
+    <img src="./imagenes/tres.png" alt="No es magia">
+  </section>
+
+  <!-- SECCION 4 -->
+  <section class="section">
+    <img src="./imagenes/cuatro.png" alt="Transformación">
+  </section>
+
+  <!-- PROXIMAS SECCIONES -->
+  <!--
+  <section class="section">
+    <img src="testimonios.jpg">
+  </section>
+
+  <section class="section">
+    <img src="sobre-mi.jpg">
+  </section>
+
+  <section class="section">
+    <img src="oferta.jpg">
+  </section>
+  -->
+
+<!-- BOTON FLOTANTE -->
+<div class="floating-cta" id="floatingButton">
+
+  <a href="https://tulinkdehotmart.com" target="_blank">
+
+    <div class="cta-main">
+      QUIERO MI EBOOK →
+    </div>
+
+    <div class="cta-sub">
+      Pago único • Acceso inmediato
+    </div>
+
+  </a>
+
+</div>
+
+</body>
+</html>
