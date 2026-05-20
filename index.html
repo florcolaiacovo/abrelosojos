@@ -90,6 +90,75 @@
     /* ESPACIO FINAL */
     .bottom-space{
       height:120px;
+
+    /* BOTON FLOTANTE PREMIUM */
+
+.floating-cta{
+  position:fixed;
+  bottom:16px;
+  left:50%;
+  transform:translateX(-50%) translateY(120px);
+  width:88%;
+  max-width:420px;
+  z-index:999;
+
+  opacity:0;
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+}
+
+/* CUANDO APARECE */
+
+.floating-cta.show{
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
+}
+
+.floating-cta a{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+
+  text-decoration:none;
+
+  background:rgba(31,48,46,0.82);
+
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+
+  border:1px solid rgba(255,255,255,0.08);
+
+  border-radius:22px;
+
+  padding:18px 22px;
+
+  box-shadow:
+    0 10px 40px rgba(0,0,0,0.18);
+
+  transition:all 0.3s ease;
+}
+
+.floating-cta a:hover{
+  transform:translateY(-2px);
+}
+
+.cta-main{
+  color:white;
+  font-size:16px;
+  font-weight:600;
+  letter-spacing:0.4px;
+}
+
+.cta-sub{
+  margin-top:5px;
+
+  color:rgba(255,255,255,0.72);
+
+  font-size:12px;
+  font-weight:500;
+}
     }
 
   </style>
@@ -98,7 +167,7 @@
 
   <!-- HERO -->
   <section class="section">
-    <img src="hero.jpg" alt="Hero ebook">
+    <img src="./imagenes/hero.png" alt="Hero ebook">
   </section>
 
   <!-- SECCION 2 -->
