@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
   <title>Abré los ojos</title>
 
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <!-- TITULOS -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <!-- TEXTO -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 
   <style>
 
@@ -45,177 +46,675 @@
       object-fit:cover;
     }
 
-    /* BOTON FLOTANTE */
+    /* =============================================
+       ESPACIO FINAL
+    ============================================= */
+
+    .bottom-space{
+      height:120px;
+    }
+
+    /* =============================================
+       BOTÓN FLOTANTE PREMIUM
+    ============================================= */
 
     .floating-cta{
+
       position:fixed;
-      bottom:20px;
+
+      bottom:16px;
       left:50%;
-      transform:translateX(-50%);
-      width:90%;
+
+      transform:
+        translateX(-50%)
+        translateY(120px);
+
+      width:88%;
       max-width:420px;
+
       z-index:999;
+
+      opacity:0;
+
+      transition:
+        opacity 0.5s ease,
+        transform 0.5s ease;
+    }
+
+    .floating-cta.show{
+
+      opacity:1;
+
+      transform:
+        translateX(-50%)
+        translateY(0);
     }
 
     .floating-cta a{
+
       display:flex;
       flex-direction:column;
+
       align-items:center;
       justify-content:center;
+
       text-decoration:none;
-      background:#1F302E;
-      color:white;
-      padding:16px 20px;
-      border-radius:18px;
-      box-shadow:0 10px 30px rgba(0,0,0,0.18);
-      transition:0.3s ease;
+
+      background:
+        rgba(31,48,46,0.82);
+
+      backdrop-filter:blur(14px);
+      -webkit-backdrop-filter:blur(14px);
+
+      border:
+        1px solid rgba(255,255,255,0.08);
+
+      border-radius:22px;
+
+      padding:18px 22px;
+
+      box-shadow:
+        0 10px 40px rgba(0,0,0,0.18);
+
+      transition:all 0.3s ease;
     }
 
     .floating-cta a:hover{
       transform:translateY(-2px);
     }
 
-    .cta-title{
+    .cta-main{
+
+      color:white;
+
       font-size:16px;
       font-weight:600;
-      letter-spacing:0.3px;
+
+      letter-spacing:0.4px;
     }
 
     .cta-sub{
-      margin-top:4px;
+
+      margin-top:5px;
+
+      color:
+        rgba(255,255,255,0.72);
+
       font-size:12px;
-      opacity:0.8;
+
+      font-weight:500;
     }
 
-    /* ESPACIO FINAL */
-    .bottom-space{
-      height:120px;
+    /* =============================================
+       TESTIMONIOS PREMIUM
+    ============================================= */
 
-    /* BOTON FLOTANTE PREMIUM */
+    .section-testimonials {
 
-.floating-cta{
-  position:fixed;
-  bottom:16px;
-  left:50%;
-  transform:translateX(-50%) translateY(120px);
-  width:88%;
-  max-width:420px;
-  z-index:999;
+      position: relative;
+      overflow: hidden;
 
-  opacity:0;
-  transition:
-    opacity 0.5s ease,
-    transform 0.5s ease;
-}
+      background:
+        radial-gradient(
+          circle at top left,
+          rgba(166,145,95,0.14),
+          transparent 28%
+        ),
+        linear-gradient(
+          180deg,
+          #1c241c 0%,
+          #121812 42%,
+          #0b100c 100%
+        );
 
-/* CUANDO APARECE */
+      padding: 0 24px 72px;
 
-.floating-cta.show{
-  opacity:1;
-  transform:translateX(-50%) translateY(0);
-}
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-.floating-cta a{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
+    .section-testimonials::before {
 
-  text-decoration:none;
+      content: "";
 
-  background:rgba(31,48,46,0.82);
+      position: absolute;
+      inset: 0;
 
-  backdrop-filter:blur(14px);
-  -webkit-backdrop-filter:blur(14px);
+      background:
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,0.015) 0%,
+          rgba(255,255,255,0) 50%,
+          rgba(255,255,255,0.015) 100%
+        );
 
-  border:1px solid rgba(255,255,255,0.08);
+      opacity: .35;
 
-  border-radius:22px;
+      mix-blend-mode: soft-light;
 
-  padding:18px 22px;
+      pointer-events: none;
+    }
 
-  box-shadow:
-    0 10px 40px rgba(0,0,0,0.18);
+    .section-testimonials::after {
 
-  transition:all 0.3s ease;
-}
+      content: "";
 
-.floating-cta a:hover{
-  transform:translateY(-2px);
-}
+      position: absolute;
 
-.cta-main{
-  color:white;
-  font-size:16px;
-  font-weight:600;
-  letter-spacing:0.4px;
-}
+      left: -60px;
+      top: 100px;
 
-.cta-sub{
-  margin-top:5px;
+      width: 220px;
+      height: 300px;
 
-  color:rgba(255,255,255,0.72);
+      background:
+        radial-gradient(
+          ellipse at center,
+          rgba(194,168,118,0.10),
+          transparent 70%
+        );
 
-  font-size:12px;
-  font-weight:500;
-}
+      filter: blur(40px);
+
+      opacity: .45;
+
+      pointer-events: none;
+    }
+
+    /* =============================================
+       INTRO TESTIMONIOS
+    ============================================= */
+
+    .testimonials-intro {
+
+      position: relative;
+      z-index: 2;
+
+      width: 100%;
+
+      text-align: center;
+
+      padding:
+        82px 12px
+        48px;
+    }
+
+    .testimonials-label {
+
+      display: block;
+
+      margin-bottom: 16px;
+
+      color: #b89c69;
+
+      font-size: 10px;
+      font-weight: 500;
+
+      letter-spacing: .42em;
+
+      text-transform: uppercase;
+    }
+
+    .testimonials-line {
+
+      width: 68px;
+      height: 1px;
+
+      margin:
+        0 auto
+        28px;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(235,214,177,0.9),
+          transparent
+        );
+    }
+
+    .testimonials-intro h2 {
+
+      color: #efe5d2;
+
+      font-family:
+        'Playfair Display',
+        serif;
+
+      font-size:
+        clamp(30px, 6vw, 42px);
+
+      line-height: 1.02;
+
+      font-weight: 500;
+
+      letter-spacing: -0.03em;
+
+      max-width: 280px;
+
+      margin: 0 auto;
+    }
+
+    .testimonials-intro p {
+
+      margin:
+        22px auto 0;
+
+      max-width: 290px;
+
+      color:
+        rgba(241,231,213,0.68);
+
+      font-size: 13px;
+
+      line-height: 1.8;
+
+      font-weight: 400;
+    }
+
+    /* =============================================
+       CARD TESTIMONIOS
+    ============================================= */
+
+    .testimonial-container {
+
+      width: 100%;
+      max-width: 450px;
+
+      min-height: 220px;
+      height: auto;
+
+      position: relative;
+
+      border-radius: 24px;
+
+      overflow: hidden;
+
+      background:
+        radial-gradient(
+          circle at top left,
+          #334030 0%,
+          #182018 60%,
+          #0d120d 100%
+        );
+
+      border:
+        1px solid rgba(245,242,235,0.08);
+
+      box-shadow:
+        0 24px 50px rgba(0,0,0,0.38),
+        inset 0 1px 2px rgba(255,255,255,0.04);
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+
+      padding:
+        26px 34px
+        18px;
+    }
+
+    .testimonial-container::before,
+    .testimonial-container::after {
+
+      content: "";
+
+      position: absolute;
+
+      border-radius: 50%;
+
+      filter: blur(28px);
+
+      opacity: 0.12;
+
+      pointer-events: none;
+    }
+
+    .testimonial-container::before {
+
+      width: 120px;
+      height: 120px;
+
+      background: #596b54;
+
+      left: -30px;
+      bottom: -20px;
+    }
+
+    .testimonial-container::after {
+
+      width: 110px;
+      height: 140px;
+
+      background: #445541;
+
+      right: -20px;
+      top: -10px;
+    }
+
+    .ui-icon {
+
+      z-index: 2;
+
+      width: 18px;
+      height: 18px;
+
+      opacity: 0.8;
+    }
+
+    .testimonial-slider {
+
+      width: 100%;
+
+      flex-grow: 1;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      position: relative;
+
+      z-index: 2;
+
+      padding: 14px 0;
+    }
+
+    .testimonial-slide {
+
+      width: 100%;
+
+      text-align: center;
+
+      position: absolute;
+
+      opacity: 0;
+      visibility: hidden;
+
+      transition:
+        opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1),
+        transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+
+      transform: translateY(4px);
+    }
+
+    .testimonial-slide.active {
+
+      opacity: 1;
+      visibility: visible;
+
+      transform: translateY(0);
+    }
+
+    .quote-text {
+
+      font-family:
+        'Lora',
+        Georgia,
+        serif;
+
+      color: #f5f1e8;
+
+      font-size: 14px;
+
+      line-height: 1.65;
+
+      font-weight: 400;
+
+      letter-spacing: 0.1px;
+
+      text-shadow:
+        0 2px 8px rgba(0,0,0,0.18);
+
+      max-width: 92%;
+
+      margin: 0 auto;
+
+      text-align: center;
+    }
+
+    .ui-pagination {
+
+      display: flex;
+
+      gap: 7px;
+
+      z-index: 2;
+    }
+
+    .dot {
+
+      width: 4.5px;
+      height: 4.5px;
+
+      border-radius: 50%;
+
+      background-color: #f5f2eb;
+
+      opacity: 0.2;
+
+      transition:
+        opacity 0.4s ease,
+        transform 0.4s ease;
+    }
+
+    .dot.active {
+
+      opacity: 0.9;
+
+      box-shadow:
+        0 0 6px rgba(245,242,235,0.8);
+
+      transform: scale(1.1);
     }
 
   </style>
+
 </head>
+
 <body>
 
-  <!-- HERO -->
   <section class="section">
     <img src="./imagenes/hero.png" alt="Hero ebook">
   </section>
 
-  <!-- SECCION 2 -->
   <section class="section">
     <img src="./imagenes/dos.png" alt="Esto me pasa">
   </section>
 
-  <!-- SECCION 3 -->
   <section class="section">
     <img src="./imagenes/tres.png" alt="No es magia">
   </section>
 
-  <!-- SECCION 4 -->
   <section class="section">
     <img src="./imagenes/cuatro.png" alt="Transformación">
   </section>
 
-  <!-- PROXIMAS SECCIONES -->
-  <!--
-  <section class="section">
-    <img src="testimonios.jpg">
-  </section>
+  <!-- =============================================
+       TESTIMONIOS
+  ============================================= -->
 
-  <section class="section">
-    <img src="sobre-mi.jpg">
-  </section>
+  <section class="section-testimonials">
 
-  <section class="section">
-    <img src="oferta.jpg">
-  </section>
-  -->
+    <div class="testimonials-intro">
 
-<!-- BOTON FLOTANTE -->
-<div class="floating-cta" id="floatingButton">
+      <span class="testimonials-label">
+        TESTIMONIOS
+      </span>
 
-  <a href="https://pay.hotmart.com/I102571092E?bid=1765475021061&utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAb21jcAR64iVleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAad6tvR0r_F4XZBtSI6I7MQR69KRFX8o9q0mG_VWRXpFZsd57ar_shQfskSD5w_aem_mAS3tn7OjCt3mg7IvTEWXw" target="_blank">
+      <div class="testimonials-line"></div>
 
-    <div class="cta-main">
-      QUIERO MI EBOOK →
+      <h2>
+        Lo que empezó<br>
+        a cambiar
+      </h2>
+
+      <p>
+        Historias reales de personas que empezaron
+        a verse distinto, entender sus patrones
+        y conectar consigo mismas desde otro lugar.
+      </p>
+
     </div>
 
-    <div class="cta-sub">
-      Pago único • Acceso inmediato
+    <div class="testimonial-container">
+          
+      <svg class="ui-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+        <path
+          d="M12 22V13M12 13C12 9 15 5 20 4C19 9 16 12 12 13ZM12 13C12 9 9 5 4 4C5 9 8 12 12 13Z"
+          stroke="#f5f2eb"
+          stroke-width="1.2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+
+      </svg>
+
+      <div class="testimonial-slider">
+
+        <div class="testimonial-slide active">
+          <p class="quote-text">
+            “Me ha servido bastante escucharte…
+            empezás a darte cuenta
+            de cosas que antes ignorabas.”
+          </p>
+        </div>
+
+        <div class="testimonial-slide">
+          <p class="quote-text">
+            “Desde que empecé a escucharte,
+            me di cuenta de cosas
+            que venía ignorando hace años.”
+          </p>
+        </div>
+
+        <div class="testimonial-slide">
+          <p class="quote-text">
+            “Sentís que algo cambia adentro tuyo…
+            como si empezaras
+            a verte con más claridad.”
+          </p>
+        </div>
+
+        <div class="testimonial-slide">
+          <p class="quote-text">
+            “Hay una paz distinta
+            cuando empezás a entenderte…
+            y dejás de pelearte con vos.”
+          </p>
+        </div>
+
+        <div class="testimonial-slide">
+          <p class="quote-text">
+            “Te cambia la forma
+            de mirar lo que vivís…
+            y también la forma
+            en que te tratás a vos.”
+          </p>
+        </div>
+
+        <div class="testimonial-slide">
+          <p class="quote-text">
+            “Empezás a escucharte distinto…
+            y de repente entendés cosas
+            que antes solo te dolían.”
+          </p>
+        </div>
+
+      </div>
+
+      <div class="ui-pagination">
+
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+
+      </div>
+
     </div>
 
-  </a>
+  </section>
 
-</div>
+  <div class="bottom-space"></div>
+
+  <!-- =============================================
+       BOTÓN CTA
+  ============================================= -->
+
+  <div class="floating-cta" id="floatingButton">
+
+    <a href="https://pay.hotmart.com/I102571092E?bid=1765475021061&utm_source=ig&utm_medium=social&utm_content=link_in_bio" target="_blank">
+
+      <div class="cta-main">
+        QUIERO MI EBOOK →
+      </div>
+
+      <div class="cta-sub">
+        Pago único • Acceso inmediato
+      </div>
+
+    </a>
+
+  </div>
+
+  <script>
+
+    (function() {
+
+      const slides =
+        document.querySelectorAll('.testimonial-slide');
+
+      const dots =
+        document.querySelectorAll('.dot');
+
+      let currentSlide = 0;
+
+      const intervalTime = 5000;
+
+      function changeSlide() {
+
+        slides[currentSlide]
+          .classList.remove('active');
+
+        dots[currentSlide]
+          .classList.remove('active');
+
+        currentSlide =
+          (currentSlide + 1) % slides.length;
+
+        slides[currentSlide]
+          .classList.add('active');
+
+        dots[currentSlide]
+          .classList.add('active');
+      }
+
+      setInterval(changeSlide, intervalTime);
+
+      window.addEventListener('scroll', () => {
+
+        const btn =
+          document.getElementById('floatingButton');
+
+        if (window.scrollY > 300) {
+
+          btn.classList.add('show');
+
+        } else {
+
+          btn.classList.remove('show');
+        }
+      });
+
+    })();
+
+  </script>
 
 </body>
 </html>
